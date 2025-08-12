@@ -1,7 +1,9 @@
 //CRUD und DB Repo
+
+import 'package:pizza_mock/features/pizza/data/database_repository.dart';
 import 'package:pizza_mock/features/pizza/domain/pizza.dart';
 
-class InMemoryPizzaDB {
+class InMemoryPizzaDB implements DatabaseRepository{
   final List<Pizza> _items = [
     const Pizza(
       id: "1",
@@ -50,4 +52,5 @@ class InMemoryPizzaDB {
   void delete(String id) {
     _items.removeWhere((p) => p.id == id);
   }
+
 }

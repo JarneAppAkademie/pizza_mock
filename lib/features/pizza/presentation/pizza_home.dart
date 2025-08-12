@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_mock/features/pizza/data/database_repository.dart';
 import 'package:pizza_mock/features/pizza/data/pizza_db.dart';
 import 'package:pizza_mock/features/pizza/presentation/pizza_edit_screen.dart';
 import 'package:pizza_mock/features/pizza/presentation/pizza_list_screen.dart';
@@ -7,7 +8,7 @@ import '../../pizza/domain/pizza.dart';
 import 'pizza_detail_screen.dart';
 
 class PizzaHome extends StatefulWidget {
-  final InMemoryPizzaDB db;
+  final DatabaseRepository db;
   const PizzaHome({super.key, required this.db});
 
   @override
@@ -15,7 +16,7 @@ class PizzaHome extends StatefulWidget {
 }
 
 class _PizzaHomeState extends State<PizzaHome> {
-  InMemoryPizzaDB get db => widget.db;
+  DatabaseRepository get db => widget.db;
 
   void _create(Pizza draft) {
     db.create(draft);
